@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Monomaniac+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            font-family: 'Great Vibes', cursive;
+            background-color: pink;
+            color: rgb(124 3 135);
+            text-align: center;
+            height: auto;
+        }
+        .flower-container {
+       
+    }
+
+    .flower {
+        position: absolute;
+        animation: fall linear infinite;
+    }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(140vh);
+                opacity: 0;
+            }
+        }
+        .countdown-header{
+            font-family: 'Great Vibes', cursive;
+            font-size: 30px;
+            font-weight: bolder;
+            color:#ac1e1e;
+        }
+        .gallery h3, .v-gallery h3{
+            font-family: "Abril Fatface", serif;
+            color:white;
+            font-weight: 800;
+        }
+        .gallery h5, .v-gallery h5{
+            font-family: "Abril Fatface", serif;
+            color:rgb(231, 201, 5);
+            font-weight: 800;
+            font-size:25px;
+        }
+        .calendar, .gallery, .music, .v-gallery {
+            font-family:sans-serif;
+            background: #6ed3e8;
+            color: black;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            width: 80%;
+            display: inline-block;
+            border: 2px solid rgb(248, 4, 4);
+        }
+        @media screen and ( min-width: 800px ) {
+        section {
+            margin-left:20%;
+            margin-right:20%;
+            }
+            .gallery, .v-gallery{
+                max-height:600px;
+            }
+        }
+       
+        .gallery{
+            background-image: url('bdgirl.jpg');
+            background-size:cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height:400px;
+        }
+        .v-gallery{
+            background-image: url('https://img.pikbest.com/backgrounds/20250105/a-vibrant-valentines-day-themed-image-with-red-background-heart_11343509.jpg!w700wp');
+            background-size:cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height:400px;
+        }
+        
+       
+        .cube {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff66b2, #ff99cc);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+        .cube2 {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #743502, #a5600c);
+            color: rgb(251, 223, 79);
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+        .countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.countdown-box {
+  width: 80px;
+  height: 80px;
+  background: #c23535;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px; /* Optional for soft edges */
+}
+
+.countdown-box span {
+  font-size: 24px;
+}
+
+.countdown-box small {
+  font-size: 12px;
+}
+.modal{
+    position:fixed;
+}
+#vdays,#vhours,#vminutes,#vseconds{
+  font-family: "Monomaniac One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#days,#hours,#minutes,#seconds{
+  font-family: "Monomaniac One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+    </style>
+</head>
+<body>
+    <h1> </h1>
+    <section class="p-1">
+ 
+    <div class="calendar">
+        <h2 class="countdown-header">Valentine's Countdown</h2>
+        <div class="cube2">
+        <span>14<sup>th</sup> February</span>
+        </div>
+        <div class="countdown-container" id="v-countdown">
+            <div class="countdown-box"><span id="vdays">00</span><small>Days</small></div>
+            <div class="countdown-box"><span id="vhours">00</span><small>Hours</small></div>
+            <div class="countdown-box"><span id="vminutes">00</span><small>Minutes</small></div>
+            <div class="countdown-box"><span id="vseconds">00</span><small>Seconds</small></div>
+        </div>
+        <button id="envelopeButton" class="btn hidden mt-2" data-bs-toggle="modal" data-bs-target="#birthdayModal" style="font-size:50px; background:transparent;">💌</button>
+        
+    </div>
+    <div class="modal fade" id="birthdayModal" tabindex="-1" aria-labelledby="birthdayModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="border:2px solid rgb(236, 202, 7); border-radius:7px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span style="padding-left:10%;"><h6 class="modal-title" id="birthdayModalLabel">❤️Happy Birthday! Love of My Life❤️</h6></span>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Happy Birthday My Medicine</h3>
+                        <h5>Today, I celebrate you – your beauty, your spirit, and your heart. Happy Birthday! </h5>
+                        <div class="v-gallery">
+                            
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    
+    <div class="calendar">
+        <h2 class="countdown-header">Birthday Countdown</h2>
+        <div class="cube">
+        <span>15<sup>th</sup> February</span>
+        </div>
+        <div class="countdown-container" id="b-countdown">
+            <div class="countdown-box"><span id="days">00</span><small>Days</small></div>
+            <div class="countdown-box"><span id="hours">00</span><small>Hours</small></div>
+            <div class="countdown-box"><span id="minutes">00</span><small>Minutes</small></div>
+            <div class="countdown-box"><span id="seconds">00</span><small>Seconds</small></div>
+          </div>
+          <button id="bdenvelopeButton" class="btn btn hidden mt-2" data-bs-toggle="modal" data-bs-target="#valentinedayModal" style="font-size:50px; background: transparent;">💌</button>
+          
+    </div>
+    <div class="modal fade" id="valentinedayModal" tabindex="-1" aria-labelledby="valentinedayModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="border:2px solid rgb(236, 202, 7); border-radius:7px;">
+            <div class="modal-content">
+                <div class="modal-header" style="background:#d5c9c9;">
+                    <span style="padding-left:10%;"><h6 class="modal-title" id="birthdayModalLabel" style="font-weight:bolder;">❤️Happy Birthday! Love of My Life❤️</h6></span>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: rgb(174, 108, 236);">
+                    <div class="flower-container">
+                    <h3 style="color:rgb(238, 215, 4);">Happy Birthday My Medicine</h3>
+                        <h5 style="color:rgb(232, 232, 236);">Today, I celebrate you – your beauty, your spirit, and your heart. Happy Birthday! </h5>
+                    <div class="gallery">
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+   
+    
+    <div class="music" style="display:none;">
+        <h2>Birthday Songs</h2>
+        <audio controls autoplay>
+            <source src="wavedancer.co.za - Christina Perri - A Thousand Years  Lirik Lagu Terjemahan.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+           
+</section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateCountdown() {
+            const today = new Date();
+            const nextBirthday = new Date(today.getFullYear(), 1, 15);
+            const countdownElement = document.getElementById("b-countdown");
+            const envelopeButton = document.getElementById("bdenvelopeButton");
+            if (today > nextBirthday) {
+                nextBirthday.setFullYear(today.getFullYear() + 1);
+                countdownElement.style.display = "none";
+                envelopeButton.style.display = "inline-block";
+            } else {
+                countdownElement.style.display = "flex";
+                envelopeButton.style.display = "none";
+            }
+            const diff = nextBirthday - today;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        }
+        function updateCountdown2(){
+            const today = new Date();
+            const nextValentineday = new Date(today.getFullYear(), 1, 14);
+            const countdownElement = document.getElementById("v-countdown");
+            const envelopeButton = document.getElementById("envelopeButton");
+            if (today > nextValentineday) {
+                nextValentineday.setFullYear(today.getFullYear() + 1);
+                countdownElement.style.display = "none";
+                envelopeButton.style.display = "inline-block";
+            } else {
+                countdownElement.style.display = "flex";
+                envelopeButton.style.display = "none";
+            }
+        
+    
+            const diff = nextValentineday - today;
+            
+            console.log(diff);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById("vdays").textContent = days;
+            document.getElementById("vhours").textContent = hours;
+            document.getElementById("vminutes").textContent = minutes;
+            document.getElementById("vseconds").textContent = seconds;
+        
+        }
+    
+       
+        updateCountdown();
+        updateCountdown2();
+        setInterval(updateCountdown, 1000);
+        setInterval(updateCountdown2, 1000);
+         
+
+
+       
+     
+    </script>
+    <script>
+        let flowerInterval;
+    
+        function createFlower() {
+            const flower = document.createElement("img");
+            flower.src = "kantkaw-removebg-preview.png"; // White Kant Kaw Image
+            flower.classList.add("flower");
+    
+            // Append to modal's flower container
+            document.querySelector("#valentinedayModal .flower-container").appendChild(flower);
+    
+            // Random position inside modal
+            flower.style.left = Math.random() * 70 + "%";
+            flower.style.top = "-50px"; // Start above modal
+            flower.style.width = Math.random() * 30 + 90 + "px"; // Random size
+            flower.style.animationDuration = Math.random() * 3 + 10 + "s"; // Different speeds
+    
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+    
+        // Listen for when the modal opens
+        document.getElementById("valentinedayModal").addEventListener("shown.bs.modal", () => {
+            flowerInterval = setInterval(createFlower, 300); // Start creating flowers every 300ms
+        });
+    
+       // Listen for when the modal closes
+        document.getElementById("valentinedayModal").addEventListener("hidden.bs.modal", () => {
+            clearInterval(flowerInterval); // Stop flowers
+            document.querySelectorAll("#valentinedayModal .flower-container .flower").forEach(flower => flower.remove());
+        });
+    </script>
+
+</body>
+</html>
