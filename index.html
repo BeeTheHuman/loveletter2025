@@ -182,9 +182,9 @@
         <div class="banner-header row">
             <div class="col-2"></div>
             <div class="col-8">
-                <h2>"Love Letter For Nge"</h2>
+                <h2>📜စာပါတယ်ဗျို့📜</h2>
             </div>
-            <div class="col-2">
+            <div class="col-2" style="padding-left:0px;">
                 <div id="audioPrompt">
                     <button style="background:transparent; outline:none; border:none;" onclick="toggleAudio()" id="audioButton">
                         <i id="audioIcon" class="bi bi-volume-mute"></i> <!-- Initial unmuted icon -->
@@ -213,8 +213,8 @@
     <div class="modal fade" id="birthdayModal" tabindex="-1" aria-labelledby="birthdayModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="border:2px solid rgb(247, 199, 78); border-radius:7px;">
             <div class="modal-content">
-                <div class="modal-header d-flex flex-column align-items-center mt-auto" style="background:#f53e3e;">
-                    <span><h6 class="modal-title" id="birthdayModalLabel" style="color:#f0e1af; font-weight:bolder;">💝Happy Valentine's Day Nge💝</h6></span>
+                <div class="modal-header d-flex flex-column align-items-center mt-auto" style="background:#9a2cd5; opacity:0.8;">
+                    <span><h6 class="modal-title" id="birthdayModalLabel" style="color:#ffffff; font-weight:bolder; letter-spacing:1px;">💝Happy Valentine's Day Nge💝</h6></span>
                     
                     
                 </div>
@@ -260,7 +260,7 @@
                     <div class="flower-container">
                     <h3 style="color:rgb(238, 215, 4);">Happy Birthday My Medicine</h3>
                         <h5 style="color:rgb(232, 232, 236);">Today, I celebrate you – your beauty, your spirit, and your heart. Happy Birthday! </h5>
-                    <div class="gallery">
+                    <div class="gallery" style="border:2px solid blue !important">
                         
                     </div>
                     <div class="d-flex flex-column align-items-center mt-auto mb-3" >
@@ -302,7 +302,7 @@
     <script>
         function updateCountdown() {
             const today = new Date();
-            const nextBirthday = new Date(today.getFullYear(), 1, 5);
+            const nextBirthday = new Date(today.getFullYear(), 1, 1);
             const countdownElement = document.getElementById("b-countdown");
             const envelopeButton = document.getElementById("bdenvelopeButton");
             if (today > nextBirthday) {
@@ -394,36 +394,36 @@
             clearInterval(flowerInterval); // Stop flowers
             document.querySelectorAll("#valentinedayModal .flower-container .flower").forEach(flower => flower.remove());
         });
-    //     function createChocolate() {
-    //         const choco = document.createElement("img");
-    //         choco.src = "gift-removebg-preview.png"; // White Kant Kaw Image
-    //         choco.classList.add("choco");
+        function createChocolate() {
+            const choco = document.createElement("img");
+            choco.src = "rose-removebg-preview.png"; // White Kant Kaw Image
+            choco.classList.add("choco");
     
-    //         // Append to modal's flower container
-    //         document.querySelector("#birthdayModal .chocolate-container").appendChild(choco);
+            // Append to modal's flower container
+            document.querySelector("#birthdayModal .chocolate-container").appendChild(choco);
     
-    //         // Random position inside modal
-    //         choco.style.left = Math.random() * 70 + "%";
-    //         choco.style.top = "-50px"; // Start above modal
-    //         choco.style.width = Math.random() * 30 + 70 + "px"; // Random size
-    //         choco.style.animationDuration = Math.random() * 3 + 10 + "s"; // Different speeds
+            // Random position inside modal
+            choco.style.left = Math.random() * 70 + "%";
+            choco.style.top = "-50px"; // Start above modal
+            choco.style.width = Math.random() * 30 + 70 + "px"; // Random size
+            choco.style.animationDuration = Math.random() * 3 + 10 + "s"; // Different speeds
     
-    //         setTimeout(() => {
-    //             choco.remove();
-    //         }, 5000);
-    //     }
+            setTimeout(() => {
+                choco.remove();
+            }, 5000);
+        }
     
         
-    //     // Listen for when the modal opens
-    //     document.getElementById("birthdayModal").addEventListener("shown.bs.modal", () => {
-    //         chocoInterval = setInterval(createChocolate, 300); // Start creating flowers every 300ms
-    //     });
+        // Listen for when the modal opens
+        document.getElementById("birthdayModal").addEventListener("shown.bs.modal", () => {
+            chocoInterval = setInterval(createChocolate, 300); // Start creating flowers every 300ms
+        });
     
-    //    // Listen for when the modal closes
-    //     document.getElementById("birthdayModal").addEventListener("hidden.bs.modal", () => {
-    //         clearInterval(chocoInterval); // Stop flowers
-    //         document.querySelectorAll("#birthdayModal .chocolate-container .choco").forEach(choco => choco.remove());
-    //     });
+       // Listen for when the modal closes
+        document.getElementById("birthdayModal").addEventListener("hidden.bs.modal", () => {
+            clearInterval(chocoInterval); // Stop flowers
+            document.querySelectorAll("#birthdayModal .chocolate-container .choco").forEach(choco => choco.remove());
+        });
 
    
     </script>
