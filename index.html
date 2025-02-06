@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Monomaniac+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -18,9 +19,10 @@
             text-align: center;
             height: auto;
         }
-        .flower-container {
-       
-    }
+  .choco{
+    position: absolute;
+    animation: fall linear infinite;
+  }
 
     .flower {
         position: absolute;
@@ -149,9 +151,9 @@
 .countdown-box small {
   font-size: 12px;
 }
-.modal{
+/* .modal{
     position:fixed;
-}
+} */
 #vdays,#vhours,#vminutes,#vseconds{
   font-family: "Monomaniac One", serif;
   font-weight: 400;
@@ -162,12 +164,38 @@
   font-weight: 400;
   font-style: normal;
 }
+.banner-header h2{
+  font-family: "Monomaniac One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#audioIcon{
+    font-size:25px !important;
+    font-weight:bolder;
+    color:rgb(0, 0, 0);
+}
     </style>
 </head>
 <body>
     <h1> </h1>
     <section class="p-1">
- 
+        <div class="banner-header row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h2>"Love Letter For Nge"</h2>
+            </div>
+            <div class="col-2">
+                <div id="audioPrompt">
+                    <button style="background:transparent; outline:none; border:none;" onclick="toggleAudio()" id="audioButton">
+                        <i id="audioIcon" class="bi bi-volume-mute"></i> <!-- Initial unmuted icon -->
+                    </button>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
     <div class="calendar">
         <h2 class="countdown-header">Valentine's Countdown</h2>
         <div class="cube2">
@@ -183,20 +211,26 @@
         
     </div>
     <div class="modal fade" id="birthdayModal" tabindex="-1" aria-labelledby="birthdayModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="border:2px solid rgb(236, 202, 7); border-radius:7px;">
+        <div class="modal-dialog" style="border:2px solid rgb(247, 199, 78); border-radius:7px;">
             <div class="modal-content">
-                <div class="modal-header">
-                    <span style="padding-left:10%;"><h6 class="modal-title" id="birthdayModalLabel">❤️Happy Birthday! Love of My Life❤️</h6></span>
+                <div class="modal-header d-flex flex-column align-items-center mt-auto" style="background:#f53e3e;">
+                    <span><h6 class="modal-title" id="birthdayModalLabel" style="color:#f0e1af; font-weight:bolder;">💝Happy Valentine's Day Nge💝</h6></span>
                     
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    
                 </div>
-                <div class="modal-body">
-                    <h3>Happy Birthday My Medicine</h3>
-                        <h5>Today, I celebrate you – your beauty, your spirit, and your heart. Happy Birthday! </h5>
+                <div class="modal-body" style="background:#9dd2dd;">
+                    <div class="chocolate-container">
+                        <h5 style="font-weight:bolder;">Whenever I'm with you, wherever we are, I'm home.
+                            Every day is beautiful with you by my side. Happy Valentine’s Day</h5>
                         <div class="v-gallery">
                             
                         </div>
+                        <div class="d-flex flex-column align-items-center mt-auto mb-3" >
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
                 </div>
+               
             </div>
         </div>
     </div>
@@ -219,10 +253,8 @@
     <div class="modal fade" id="valentinedayModal" tabindex="-1" aria-labelledby="valentinedayModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="border:2px solid rgb(236, 202, 7); border-radius:7px;">
             <div class="modal-content">
-                <div class="modal-header" style="background:#d5c9c9;">
-                    <span style="padding-left:10%;"><h6 class="modal-title" id="birthdayModalLabel" style="font-weight:bolder;">❤️Happy Birthday! Love of My Life❤️</h6></span>
-                    
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header d-flex flex-column align-items-center mt-auto"  style="background:#d5c9c9;">
+                    <span><h6 class="modal-title" id="birthdayModalLabel" style="font-weight:bolder;">❤️Happy Birthday! Love of My Life❤️</h6></span>
                 </div>
                 <div class="modal-body" style="background-color: rgb(174, 108, 236);">
                     <div class="flower-container">
@@ -230,6 +262,9 @@
                         <h5 style="color:rgb(232, 232, 236);">Today, I celebrate you – your beauty, your spirit, and your heart. Happy Birthday! </h5>
                     <div class="gallery">
                         
+                    </div>
+                    <div class="d-flex flex-column align-items-center mt-auto mb-3" >
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     </div>
                 </div>
@@ -240,20 +275,34 @@
     
    
     
-    <div class="music" style="display:none;">
+    <!-- <div class="music" style="display:none;">
         <h2>Birthday Songs</h2>
-        <audio controls autoplay>
+        <audio controls id="birthdaySong" loop>
             <source src="wavedancer.co.za - Christina Perri - A Thousand Years  Lirik Lagu Terjemahan.mp3" type="audio/mpeg">
+            <source src="wavedancer.co.za - Christina Perri - A Thousand Years  Lirik Lagu Terjemahan.ogg" type="audio/ogg">
             Your browser does not support the audio tag.
         </audio>
+    </div> -->
+    <div class="music" id="musicContainer" style="display:none;">
+        
+        <div class="col-12">
+            <h2>Birthday Songs</h2>
+        <audio id="birthdaySong" controls>
+            <source src="wavedancer.co.za - Christina Perri - A Thousand Years  Lirik Lagu Terjemahan.mp3" type="audio/mpeg">
+
+            Your browser does not support the audio tag.
+        </audio>
+        </div>
     </div>
+    
+    
            
 </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function updateCountdown() {
             const today = new Date();
-            const nextBirthday = new Date(today.getFullYear(), 1, 15);
+            const nextBirthday = new Date(today.getFullYear(), 1, 5);
             const countdownElement = document.getElementById("b-countdown");
             const envelopeButton = document.getElementById("bdenvelopeButton");
             if (today > nextBirthday) {
@@ -276,7 +325,7 @@
         }
         function updateCountdown2(){
             const today = new Date();
-            const nextValentineday = new Date(today.getFullYear(), 1, 14);
+            const nextValentineday = new Date(today.getFullYear(), 1, 4);
             const countdownElement = document.getElementById("v-countdown");
             const envelopeButton = document.getElementById("envelopeButton");
             if (today > nextValentineday) {
@@ -290,8 +339,6 @@
         
     
             const diff = nextValentineday - today;
-            
-            console.log(diff);
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -316,7 +363,8 @@
     </script>
     <script>
         let flowerInterval;
-    
+        let chocoInterval;
+      
         function createFlower() {
             const flower = document.createElement("img");
             flower.src = "kantkaw-removebg-preview.png"; // White Kant Kaw Image
@@ -346,7 +394,61 @@
             clearInterval(flowerInterval); // Stop flowers
             document.querySelectorAll("#valentinedayModal .flower-container .flower").forEach(flower => flower.remove());
         });
+    //     function createChocolate() {
+    //         const choco = document.createElement("img");
+    //         choco.src = "gift-removebg-preview.png"; // White Kant Kaw Image
+    //         choco.classList.add("choco");
+    
+    //         // Append to modal's flower container
+    //         document.querySelector("#birthdayModal .chocolate-container").appendChild(choco);
+    
+    //         // Random position inside modal
+    //         choco.style.left = Math.random() * 70 + "%";
+    //         choco.style.top = "-50px"; // Start above modal
+    //         choco.style.width = Math.random() * 30 + 70 + "px"; // Random size
+    //         choco.style.animationDuration = Math.random() * 3 + 10 + "s"; // Different speeds
+    
+    //         setTimeout(() => {
+    //             choco.remove();
+    //         }, 5000);
+    //     }
+    
+        
+    //     // Listen for when the modal opens
+    //     document.getElementById("birthdayModal").addEventListener("shown.bs.modal", () => {
+    //         chocoInterval = setInterval(createChocolate, 300); // Start creating flowers every 300ms
+    //     });
+    
+    //    // Listen for when the modal closes
+    //     document.getElementById("birthdayModal").addEventListener("hidden.bs.modal", () => {
+    //         clearInterval(chocoInterval); // Stop flowers
+    //         document.querySelectorAll("#birthdayModal .chocolate-container .choco").forEach(choco => choco.remove());
+    //     });
+
+   
     </script>
+        <script>
+        function toggleAudio() {
+            document.getElementById("musicContainer").style.display = "none";
+            //document.getElementById("audioPrompt").style.display = "none";
+            let audio = document.getElementById("birthdaySong");
+           
+                const audioIcon = document.getElementById("audioIcon");
+
+                if (audioIcon.classList.contains("bi-volume-up")) {
+                    audioIcon.classList.remove("bi-volume-up");
+                    audioIcon.classList.add("bi-volume-mute");
+                    audio.muted=true;
+                } else {
+                    audioIcon.classList.remove("bi-volume-mute");
+                    audioIcon.classList.add("bi-volume-up");
+                    audio.muted=false;
+                    audio.play();
+
+                }
+        }
+        </script>
+        
 
 </body>
 </html>
