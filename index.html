@@ -302,7 +302,7 @@
     <script>
         function updateCountdown() {
             const today = new Date();
-            const nextBirthday = new Date(today.getFullYear(), 1, 1);
+            const nextBirthday = new Date(today.getFullYear(), 1, 15);
             const countdownElement = document.getElementById("b-countdown");
             const envelopeButton = document.getElementById("bdenvelopeButton");
             if (today > nextBirthday) {
@@ -325,7 +325,7 @@
         }
         function updateCountdown2(){
             const today = new Date();
-            const nextValentineday = new Date(today.getFullYear(), 1, 4);
+            const nextValentineday = new Date(today.getFullYear(), 1, 14);
             const countdownElement = document.getElementById("v-countdown");
             const envelopeButton = document.getElementById("envelopeButton");
             if (today > nextValentineday) {
