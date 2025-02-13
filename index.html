@@ -183,7 +183,7 @@
         <div class="banner-header row">
             <div class="col-2"></div>
             <div class="col-8">
-                <h2>📜For Love of My Life📜</h2>
+                <h3>📜For Love of My Life📜</h3>
             </div>
             <div class="col-2" style="padding-left:0px;">
                 <div id="audioPrompt">
@@ -303,7 +303,7 @@
     <script>
         function updateCountdown() {
             const today = new Date();
-            const nextBirthday = new Date(today.getFullYear(), 1, 5);
+            const nextBirthday = new Date(today.getFullYear(), 1, 15);
             const countdownElement = document.getElementById("b-countdown");
             const envelopeButton = document.getElementById("bdenvelopeButton");
             let countdownHeader2 = document.getElementById("countdown-header2");
@@ -328,7 +328,7 @@
         }
         function updateCountdown2(){
             const today = new Date();
-            const nextValentineday = new Date(today.getFullYear(), 1, 4);
+            const nextValentineday = new Date(today.getFullYear(), 1, 14);
             const countdownElement = document.getElementById("v-countdown");
             const envelopeButton = document.getElementById("envelopeButton");
             let countdownHeader1 = document.getElementById("countdown-header1");
@@ -336,7 +336,7 @@
                 nextValentineday.setFullYear(today.getFullYear() + 1);
                 countdownElement.style.display = "none";
                 envelopeButton.style.display = "inline-block";
-                countdownHeader1.innerHTML = "Happy Valentine's Day"
+                countdownHeader1.innerHTML = "Happy <br> Valentine's Day"
             } else {
                 countdownElement.style.display = "flex";
                 envelopeButton.style.display = "none";
