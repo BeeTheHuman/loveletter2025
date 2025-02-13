@@ -39,7 +39,7 @@
                 opacity: 0;
             }
         }
-        .countdown-header{
+        .countdown-header1,.countdown-header2{
             font-family: 'Great Vibes', cursive;
             font-size: 30px;
             font-weight: bolder;
@@ -85,10 +85,11 @@
             height:400px;
         }
         .v-gallery{
-            background-image: url('https://img.pikbest.com/backgrounds/20250105/a-vibrant-valentines-day-themed-image-with-red-background-heart_11343509.jpg!w700wp');
+            background-image: url('vdaybaby.jpg');
             background-size:cover; /* Ensures the image covers the entire background */
             background-position: center; /* Centers the image */
             background-repeat: no-repeat; /* Prevents the image from repeating */
+            aspect-ratio:auto;
             height:400px;
         }
         
@@ -182,7 +183,7 @@
         <div class="banner-header row">
             <div class="col-2"></div>
             <div class="col-8">
-                <h2>📜စာပါတယ်ဗျို့📜</h2>
+                <h2>📜For Love of My Life📜</h2>
             </div>
             <div class="col-2" style="padding-left:0px;">
                 <div id="audioPrompt">
@@ -197,7 +198,7 @@
         
         
     <div class="calendar">
-        <h2 class="countdown-header">Valentine's Countdown</h2>
+        <h2 class="countdown-header1" id="countdown-header1">Valentine's Countdown</h2>
         <div class="cube2">
         <span>14<sup>th</sup> February</span>
         </div>
@@ -221,7 +222,7 @@
                 <div class="modal-body" style="background:#9dd2dd;">
                     <div class="chocolate-container">
                         <h5 style="font-weight:bolder;">Whenever I'm with you, wherever we are, I'm home.
-                            Every day is beautiful with you by my side. Happy Valentine’s Day</h5>
+                            Every day is beautiful with you by my side. Happy Valentine’s Day!</h5>
                         <div class="v-gallery">
                             
                         </div>
@@ -237,7 +238,7 @@
   
     
     <div class="calendar">
-        <h2 class="countdown-header">Birthday Countdown</h2>
+        <h2 class="countdown-header2" id="countdown-header2">Birthday Countdown</h2>
         <div class="cube">
         <span>15<sup>th</sup> February</span>
         </div>
@@ -288,7 +289,7 @@
         <div class="col-12">
             <h2>Birthday Songs</h2>
         <audio id="birthdaySong" controls>
-            <source src="wavedancer.co.za - Christina Perri - A Thousand Years  Lirik Lagu Terjemahan.mp3" type="audio/mpeg">
+            <source src="I Do-911-Lyrics Video.mp3" type="audio/mpeg">
 
             Your browser does not support the audio tag.
         </audio>
@@ -302,13 +303,15 @@
     <script>
         function updateCountdown() {
             const today = new Date();
-            const nextBirthday = new Date(today.getFullYear(), 1, 15);
+            const nextBirthday = new Date(today.getFullYear(), 1, 5);
             const countdownElement = document.getElementById("b-countdown");
             const envelopeButton = document.getElementById("bdenvelopeButton");
+            let countdownHeader2 = document.getElementById("countdown-header2");
             if (today > nextBirthday) {
                 nextBirthday.setFullYear(today.getFullYear() + 1);
                 countdownElement.style.display = "none";
                 envelopeButton.style.display = "inline-block";
+                countdownHeader2.innerHTML = "Happy Birthday"
             } else {
                 countdownElement.style.display = "flex";
                 envelopeButton.style.display = "none";
@@ -325,13 +328,15 @@
         }
         function updateCountdown2(){
             const today = new Date();
-            const nextValentineday = new Date(today.getFullYear(), 1, 14);
+            const nextValentineday = new Date(today.getFullYear(), 1, 4);
             const countdownElement = document.getElementById("v-countdown");
             const envelopeButton = document.getElementById("envelopeButton");
+            let countdownHeader1 = document.getElementById("countdown-header1");
             if (today > nextValentineday) {
                 nextValentineday.setFullYear(today.getFullYear() + 1);
                 countdownElement.style.display = "none";
                 envelopeButton.style.display = "inline-block";
+                countdownHeader1.innerHTML = "Happy Valentine's Day"
             } else {
                 countdownElement.style.display = "flex";
                 envelopeButton.style.display = "none";
@@ -377,7 +382,7 @@
             flower.style.left = Math.random() * 70 + "%";
             flower.style.top = "-50px"; // Start above modal
             flower.style.width = Math.random() * 30 + 90 + "px"; // Random size
-            flower.style.animationDuration = Math.random() * 3 + 10 + "s"; // Different speeds
+            flower.style.animationDuration = Math.random() * 3 + 20 + "s"; // Different speeds
     
             setTimeout(() => {
                 flower.remove();
@@ -406,7 +411,7 @@
             choco.style.left = Math.random() * 70 + "%";
             choco.style.top = "-50px"; // Start above modal
             choco.style.width = Math.random() * 30 + 70 + "px"; // Random size
-            choco.style.animationDuration = Math.random() * 3 + 10 + "s"; // Different speeds
+            choco.style.animationDuration = Math.random() * 3 + 20 + "s"; // Different speeds
     
             setTimeout(() => {
                 choco.remove();
